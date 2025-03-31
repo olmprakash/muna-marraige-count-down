@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muna Shrestha's Wedding Countdown</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #ffa502);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .background-sloka {
+            position: absolute;
+            font-size: 1.5em; /* Reduced for smaller screens */
+            color: rgba(255, 215, 0, 0.2);
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sloka1 {
+            animation: float1 25s infinite linear;
+        }
+
+        .sloka2 {
+            animation: float2 30s infinite linear;
+        }
+
+        @keyframes float1 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50vw, 20vh); }
+            50% { transform: translate(80vw, -10vh); }
+            75% { transform: translate(30vw, -20vh); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float2 {
+            0% { transform: translate(80vw, -20vh); }
+            25% { transform: translate(30vw, 10vh); }
+            50% { transform: translate(0, 20vh); }
+            75% { transform: translate(50vw, -10vh); }
+            100% { transform: translate(80vw, -20vh); }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px; /* Reduced padding for mobile */
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            margin: 15px; /* Added margin for left-right spacing */
+            max-width: 90%; /* Ensures it doesn’t stretch too wide */
+        }
+
+        h1 {
+            font-size: 2em; /* Slightly smaller for mobile */
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .mandala {
+            width: 80px; /* Smaller for mobile */
+            height: 80px;
+            margin: 15px auto;
+            background: url('https://cdn.pixabay.com/photo/2017/08/30/07/56/mandala-2696945_1280.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Reduced gap for mobile */
+            margin: 20px 0;
+            flex-wrap: wrap; /* Allows wrapping on very small screens */
+        }
+
+        .time-block {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px; /* Reduced padding */
+            border-radius: 10px;
+            min-width: 50px; /* Adjusted for mobile */
+        }
+
+        .time-block span {
+            display: block;
+            font-size: 1.5em; /* Smaller for mobile */
+            font-weight: bold;
+        }
+
+        .sloka {
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1em; /* Adjusted for mobile */
+            line-height: 1.5;
+        }
+
+        .sanskrit {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .mandala {
+                width: 60px;
+                height: 60px;
+            }
+
+            .time-block {
+                padding: 10px;
+                min-width: 40px;
+            }
+
+            .time-block span {
+                font-size: 1.2em;
+            }
+
+            .background-sloka {
+                font-size: 1em; /* Even smaller on narrow screens */
+            }
+        }
+
+        @media (min-width: 601px) {
+            .container {
+                padding: 40px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .mandala {
+                width: 100px;
+                height: 100px;
+            }
+
+            .time-block {
+                padding: 20px;
+                min-width: 60px;
+            }
+
+            .time-block span {
+                font-size: 2em;
+            }
+
+            .background-sloka {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-sloka sloka1">ॐ नमः शिवाय</div>
+    <div class="background-sloka sloka2">ॐ सौभाग्यं संततिर्भव। माङ्गल्यं यशः प्रदं। शुभं भवतु वो जीवनं।</div>
+    <div class="container">
+        <h1>Muna Shrestha's Wedding</h1>
+        <div class="mandala"></div>
+        <div class="countdown">
+            <div class="time-block">
+                <span id="days">0</span>
+                Days
+            </div>
+            <div class="time-block">
+                <span id="hours">0</span>
+                Hours
+            </div>
+            <div class="time-block">
+                <span id="minutes">0</span>
+                Minutes
+            </div>
+            <div class="time-block">
+                <span id="seconds">0</span>
+                Seconds
+            </div>
+        </div>
+        <div class="sloka">
+            <span class="sanskrit">ॐ नमः शिवाय</span><br>
+            Om Namah Shivaya<br>
+            "Salutations to Lord Shiva, the auspicious one"<br><br>
+            <span class="sanskrit">ॐ सौभाग्यं संततिर्भव। माङ्गल्यं यशः प्रदं। शुभं भवतु वो जीवनं।</span><br>
+            Om Saubhagyam Santatirbhava. Mangalyam Yashah Pradam. Shubham Bhavatu Vo Jivanam.<br>
+            "May you be blessed with good fortune, progeny, auspiciousness, fame, and a prosperous life."
+        </div>
+    </div>
+
+    <script>
+        const weddingDate = new Date("May 14, 2025 00:00:00").getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector(".container").innerHTML = `
+                    <h1>Jai Shri Ram!</h1>
+                    <p>Muna Shrestha's Wedding Day Has Arrived!</p>
+                `;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
